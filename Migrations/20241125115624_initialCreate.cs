@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -54,7 +55,8 @@ namespace LayeredArchitecture.Migrations
                     sourceAccNum = table.Column<int>(type: "int", nullable: false),
                     destinationAccNum = table.Column<int>(type: "int", nullable: true),
                     opertaion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    amount = table.Column<double>(type: "float", nullable: false)
+                    amount = table.Column<double>(type: "float", nullable: false),
+                    date = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {

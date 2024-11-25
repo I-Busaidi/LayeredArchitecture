@@ -17,10 +17,12 @@ namespace LayeredArchitecture.Models
 
         [Required]
         [ForeignKey("SourceBA")]
+        [InverseProperty("Transactions")]
         public int sourceAccNum { get; set; }
         public virtual BankAccount SourceBA { get; set; }
 
         [ForeignKey("DestinationBA")]
+        [InverseProperty("RecievedTransactions")]
         public int? destinationAccNum { get; set; }
         public virtual BankAccount DestinationBA { get; set; }
 
@@ -29,5 +31,8 @@ namespace LayeredArchitecture.Models
 
         [Required]
         public double amount { get; set; }
+
+        [Required]
+        public DateTime date { get; set; }
     }
 }

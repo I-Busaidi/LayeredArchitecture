@@ -27,5 +27,8 @@ namespace LayeredArchitecture.Models
 
         [InverseProperty("SourceBA")]
         public virtual IEnumerable<Transaction> Transactions { get; set; }
+
+        [InverseProperty("DestinationBA")]
+        public virtual IEnumerable<Transaction>? RecievedTransactions { get; set; }
     }
 }
