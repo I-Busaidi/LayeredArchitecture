@@ -11,6 +11,8 @@ namespace LayeredArchitecture.Repositories
     {
         IEnumerable<BankAccount> GetAllAccounts();
         BankAccount GetAccountById(int accountId);
+
+        BankAccount GetAccountByAccNum(string accNum);
         void AddAccount(BankAccount account);
         void UpdateAccount(BankAccount account);
         void DeleteAccount(int accountId);

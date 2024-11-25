@@ -8,5 +8,6 @@ namespace LayeredArchitecture.Services
 {
     public interface ITransactionService
     {
+
     }
 }

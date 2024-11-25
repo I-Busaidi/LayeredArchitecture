@@ -28,6 +28,11 @@ namespace LayeredArchitecture.Repositories
             //return _context.Users.FirstOrDefault(u => u.Id == userId); user details only
         }
 
+        public User GetUserByEmail(string email)
+        {
+            return _context.Users.Include(u => u.BankAccounts).FirstOrDefault(u => u.Email == email);
+        }
+
         public void AddUser(User user)
         {
             _context.Users.Add(user);

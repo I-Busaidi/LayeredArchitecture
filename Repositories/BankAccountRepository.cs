@@ -27,6 +27,11 @@ namespace LayeredArchitecture.Repositories
             return _context.BankAccounts.Include(b => b.Owner).FirstOrDefault(b => b.Id == accountId);
         }
 
+        public BankAccount GetAccountByAccNum(string accNum)
+        {
+            return _context.BankAccounts.Include(b => b.Owner).FirstOrDefault(b => b.AccountNumber == accNum);
+        }
+
         public void AddAccount(BankAccount account)
         {
             _context.BankAccounts.Add(account);

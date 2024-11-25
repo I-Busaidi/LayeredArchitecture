@@ -11,6 +11,7 @@ namespace LayeredArchitecture.Repositories
     {
         IEnumerable<User> GetAllUsers();
         User GetUserById(int userId);
+        User GetUserByEmail(string email);
         void AddUser(User user);
         void UpdateUser(User user);
         void DeleteUser(int userId);
