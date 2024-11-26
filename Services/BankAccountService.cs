@@ -62,7 +62,7 @@ namespace LayeredArchitecture.Services
             }
             else
             {
-                return "Failed to update account";
+                return "Account not found";
             }
         }
 
