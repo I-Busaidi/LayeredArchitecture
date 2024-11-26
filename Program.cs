@@ -73,11 +73,13 @@ namespace LayeredArchitecture
             Console.WriteLine($"Enter the eamil for user {name}");
             string email = Console.ReadLine();
 
-            userService.AddUser(new User
-            {
-                Name = name,
-                Email = email
-            });
+            string result = userService.AddUser(new User
+                            {
+                                Name = name,
+                                Email = email
+                            });
+
+            Console.WriteLine(result);
         }
 
         private static void AddBankAccount(IBankAccountService bankAccountService)
@@ -92,12 +94,14 @@ namespace LayeredArchitecture
             Console.WriteLine("Enter the initial balance: ");
             decimal initBalance = decimal.Parse(Console.ReadLine());
 
-            bankAccountService.AddAccount(new BankAccount
-            {
-                AccountNumber = accNumber,
-                Balance = initBalance,
-                UserId = userId
-            });
+            string result = bankAccountService.AddAccount(new BankAccount
+                            {
+                                AccountNumber = accNumber,
+                                Balance = initBalance,
+                                UserId = userId
+                            });
+
+            Console.WriteLine(result);
         }
 
         private static void Deposit(IBankServices bankServices)
