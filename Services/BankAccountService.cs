@@ -22,14 +22,10 @@ namespace LayeredArchitecture.Services
             return _bankAccountRepository.GetAllAccounts();
         }
 
-        public BankAccount GetAccountById(int accountId)
-        {
-            return _bankAccountRepository.GetAccountById(accountId);
-        }
-
         public BankAccount GetAccountByAccNumber(string accNumber)
         {
-            return _bankAccountRepository.GetAccountByAccNum(accNumber);
+            var account = _bankAccountRepository.GetAccountByAccNum(accNumber);
+            return _bankAccountRepository.GetAccountById(account.Id);
         }
 
         public string AddAccount(BankAccount account)

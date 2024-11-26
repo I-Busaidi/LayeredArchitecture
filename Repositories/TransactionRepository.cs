@@ -25,19 +25,19 @@ namespace LayeredArchitecture.Repositories
                                         .ToList();
         }
 
-        public IEnumerable<Transaction> GetTransactionsBySourceAccountNum(int sourceAccNum)
+        public IEnumerable<Transaction> GetTransactionsBySourceAccountId(int sourceAccId)
         {
             return _context.Transactions.Include(t => t.SourceBA)
                                         .Include(t => t.DestinationBA)
-                                        .Where(t => t.sourceAccNum == sourceAccNum)
+                                        .Where(t => t.sourceAccId == sourceAccId)
                                         .ToList();
         }
 
-        public IEnumerable<Transaction> GetTransactionsByDestinationAccountNum(int destAccNum)
+        public IEnumerable<Transaction> GetTransactionsByDestinationAccountId(int destAccId)
         {
             return _context.Transactions.Include(t => t.SourceBA)
                                         .Include(t => t.DestinationBA)
-                                        .Where(t => t.destinationAccNum == destAccNum)
+                                        .Where(t => t.destinationAccId == destAccId)
                                         .ToList();
         }
 
@@ -47,11 +47,11 @@ namespace LayeredArchitecture.Repositories
                                         .ToList();
         }
 
-        public IEnumerable<Transaction> GetAccountTransactionsByDateRange(int accNum, DateTime fromDate, DateTime toDate)
+        public IEnumerable<Transaction> GetAccountTransactionsByDateRange(int accId, DateTime fromDate, DateTime toDate)
         {
             return _context.Transactions.Where(t => t.date >= fromDate 
                                                     && t.date <= toDate 
-                                                    && (t.sourceAccNum == accNum || t.destinationAccNum == accNum))
+                                                    && (t.sourceAccId == accId || t.destinationAccId == accId))
                                         .ToList();
         }
 

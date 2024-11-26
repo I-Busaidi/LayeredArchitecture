@@ -25,6 +25,14 @@ namespace LayeredArchitecture.Services
             {
                 bankAccount.Balance += amount;
                 _bankAccountService.UpdateAccount(bankAccount);
+                _transactionService.AddTransaction(new Transaction
+                {
+                    sourceAccId = bankAccount.Id,
+                    destinationAccId = bankAccount.Id,
+                    opertaion = "Deposit",
+                    amount = amount,
+                    date = DateTime.Now
+                });
                 return null;
             }
             else
@@ -46,6 +54,13 @@ namespace LayeredArchitecture.Services
                 {
                     bankAccount.Balance -= amount;
                     _bankAccountService.UpdateAccount(bankAccount);
+                    _transactionService.AddTransaction(new Transaction
+                    {
+                        sourceAccId = bankAccount.Id,
+                        opertaion = "Withdraw",
+                        amount = amount,
+                        date = DateTime.Now
+                    });
                     return null;
                 }
             }
@@ -73,6 +88,14 @@ namespace LayeredArchitecture.Services
                         destBankAcc.Balance += amount;
                         _bankAccountService.UpdateAccount(sourceBankAcc);
                         _bankAccountService.UpdateAccount(destBankAcc);
+                        _transactionService.AddTransaction(new Transaction
+                        {
+                            sourceAccId = sourceBankAcc.Id,
+                            destinationAccId = destBankAcc.Id,
+                            opertaion = "Transfer",
+                            amount = amount,
+                            date = DateTime.Now
+                        });
                         return $"{amount} transferred successfully from account {sourceAccNum} to account {destAccNum}";
                     }
                 }

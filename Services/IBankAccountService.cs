@@ -10,8 +10,6 @@ namespace LayeredArchitecture.Services
     public interface IBankAccountService
     {
         IEnumerable<BankAccount> GetAllAccounts();
-        BankAccount GetAccountById(int accountId);
-
         BankAccount GetAccountByAccNumber(string accNumber);
         string AddAccount(BankAccount account);
         string UpdateAccount(BankAccount account);

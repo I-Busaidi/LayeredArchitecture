@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LayeredArchitecture.Models
 {
-    [PrimaryKey(nameof(transactionId), nameof(sourceAccNum))]
+    [PrimaryKey(nameof(transactionId), nameof(sourceAccId))]
     public class Transaction
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -18,19 +18,19 @@ namespace LayeredArchitecture.Models
         [Required]
         [ForeignKey("SourceBA")]
         [InverseProperty("Transactions")]
-        public int sourceAccNum { get; set; }
+        public int sourceAccId { get; set; }
         public virtual BankAccount SourceBA { get; set; }
 
         [ForeignKey("DestinationBA")]
         [InverseProperty("RecievedTransactions")]
-        public int? destinationAccNum { get; set; }
+        public int? destinationAccId { get; set; }
         public virtual BankAccount DestinationBA { get; set; }
 
         [Required]
         public string opertaion { get; set; }
 
         [Required]
-        public double amount { get; set; }
+        public decimal amount { get; set; }
 
         [Required]
         public DateTime date { get; set; }

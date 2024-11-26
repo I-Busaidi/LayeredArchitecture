@@ -17,12 +17,12 @@ namespace LayeredArchitecture.Services
 
         public IEnumerable<Transaction> GetAllTransactions();
 
-        public IEnumerable<Transaction> GetTransactionsBySourceAccountNum(int sourceAccNum);
+        public IEnumerable<Transaction> GetTransactionsBySourceAccountNum(string sourceAccNum);
 
-        public IEnumerable<Transaction> GetTransactionsByDestinationAccountNum(int destAccNum);
+        public IEnumerable<Transaction> GetTransactionsByDestinationAccountNum(string destAccNum);
 
         public IEnumerable<Transaction> GetTransactionsByDateRange(DateTime fromDate, DateTime toDate);
 
-        public IEnumerable<Transaction> GetAccountTransactionsByDateRange(int accNum, DateTime fromDate, DateTime toDate);
+        public IEnumerable<Transaction> GetAccountTransactionsByDateRange(string accNum, DateTime fromDate, DateTime toDate);
     }
 }
