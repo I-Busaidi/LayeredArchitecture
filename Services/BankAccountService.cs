@@ -25,6 +25,10 @@ namespace LayeredArchitecture.Services
         public BankAccount GetAccountByAccNumber(string accNumber)
         {
             var account = _bankAccountRepository.GetAccountByAccNum(accNumber);
+            if (account == null)
+            {
+                return null;
+            }
             return _bankAccountRepository.GetAccountById(account.Id);
         }
 
